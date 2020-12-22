@@ -1,0 +1,43 @@
+using System;
+
+namespace ConsoleApp4
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Program navržen na přetečení integer limitu díky kterému můžeme získat více položek za absurdní cenu
+            long basic = 0;
+            //proměná na udržení ceny ve které se aktuálně pohybujeme
+            long maxpenez = 2147483648;
+            //limit integeru
+            long cena = 250000;
+            //cena za jeden kus
+            int kusu = 32000;
+            //maximální počet kusů co je možné koupit 
+            int finalnicena = 50000;
+            //maximální cenu za kterou chceme nakoupit
+
+            for (int i = 0; i < kusu; i++)
+            {
+                //loop který jede dokud nezjistí cenu za každý kus
+                //Když cena přesáhne integer limit, tak se jeho hodnota nastaví na -integer ( -2147483648 ), z tohoto mínusu se musíme dostat do alespoň +1, jelikož za mínusovou hodnotu nemůžeme nakupovat.
+
+                long vysledek = basic % maxpenez;
+                
+                              
+               int intVysledek = Convert.ToInt32(vysledek);
+
+                if (intVysledek < finalnicena)
+                //Když cena počtu kusů přesáhne limit a vyjede zpět do plusového integeru ( alespoň 1 ), vypíše se kolik kusů je třeba zakoupit a na jakou cenu nás vyjde.
+                {
+                    Console.WriteLine("Počet " + i);
+                    Console.WriteLine("Výsledek " + vysledek);
+                    Console.WriteLine("");
+                }
+                basic += (cena);
+            }
+
+        }
+    }
+}
