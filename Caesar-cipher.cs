@@ -32,13 +32,6 @@ namespace ConsoleApp4
 
             Console.WriteLine("Posunuté jméno:");
             Console.WriteLine(looper(input, hash));
-
-
-
-
-
-
-
         }
     }
 
